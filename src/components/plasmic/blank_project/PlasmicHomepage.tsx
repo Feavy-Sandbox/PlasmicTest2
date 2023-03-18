@@ -136,7 +136,7 @@ function PlasmicHomepage__RenderFunc(props: {
                 sty.h1
               )}
             >
-              {"Welcome to your first page."}
+              {"Chibi Engine"}
             </h1>
 
             <div

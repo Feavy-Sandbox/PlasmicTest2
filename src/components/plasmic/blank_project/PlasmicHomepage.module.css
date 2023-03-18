@@ -43,7 +43,15 @@
   height: auto;
   max-width: 800px;
   margin-bottom: 32px;
+  padding-top: 0px;
+  margin-left: 0px;
+  color: #e044de;
   min-width: 0;
+}
+@media (min-width: 0px) and (max-width: 768px) {
+  .h1 {
+    font-size: 60px;
+  }
 }
 .text {
   position: relative;
