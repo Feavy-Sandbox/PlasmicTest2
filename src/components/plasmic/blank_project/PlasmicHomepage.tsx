@@ -38,11 +38,15 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants
 } from "@plasmicapp/react-web";
+import Button from "../../Button"; // plasmic-import: X8LmaV7FnOC/component
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
 import * as projectcss from "./plasmic_blank_project.module.css"; // plasmic-import: fshNQUUTM3VHchgfPz71Ms/projectcss
 import * as sty from "./PlasmicHomepage.module.css"; // plasmic-import: He69hR_pkbsH/css
+
+import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: dWef3DvCG46/icon
+import IconIcon from "./icons/PlasmicIcon__Icon"; // plasmic-import: MSXib8ydZvR/icon
 
 export type PlasmicHomepage__VariantMembers = {};
 export type PlasmicHomepage__VariantsArgs = {};
@@ -58,6 +62,7 @@ export type PlasmicHomepage__OverridesType = {
   section?: p.Flex<"section">;
   h1?: p.Flex<"h1">;
   text?: p.Flex<"div">;
+  button?: p.Flex<typeof Button>;
 };
 
 export interface DefaultHomepageProps {
@@ -167,6 +172,14 @@ function PlasmicHomepage__RenderFunc(props: {
                 </React.Fragment>
               </React.Fragment>
             </div>
+
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+            >
+              {"Test"}
+            </Button>
           </p.Stack>
         </div>
       </div>
@@ -175,10 +188,11 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "section", "h1", "text"],
-  section: ["section", "h1", "text"],
+  root: ["root", "section", "h1", "text", "button"],
+  section: ["section", "h1", "text", "button"],
   h1: ["h1"],
-  text: ["text"]
+  text: ["text"],
+  button: ["button"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -188,6 +202,7 @@ type NodeDefaultElementType = {
   section: "section";
   h1: "h1";
   text: "div";
+  button: typeof Button;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -253,6 +268,7 @@ export const PlasmicHomepage = Object.assign(
     section: makeNodeComponent("section"),
     h1: makeNodeComponent("h1"),
     text: makeNodeComponent("text"),
+    button: makeNodeComponent("button"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
